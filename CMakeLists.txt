@@ -5,22 +5,6 @@ set(CMAKE_CXX_STANDARD 11)
 
 project(ChuckNorris)
 
-add_library(sqlite3 STATIC IMPORTED)
-
-set_target_properties(sqlite3
-    PROPERTIES
-    IMPORTED_LOCATION $HOME/3rdpart/sqlite/sqlite-amalgamation-3350200/lib/libsqlite3.a
-    INTERFACE_INCLUDE_DIRECTORIES $HOME/3rdpart/sqlite/sqlite-amalgamation-3350200/include
-)
-
-# declare dependant libs from sqlite3 on linux
-if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
-  set_target_properties(sqlite3
-    PROPERTIES
-      INTERFACE_LINK_LIBRARIES "dl;pthread"
-   )
-endif()
-
 # describe the first build target
 add_library(chucknorris
     include/ChuckNorris.hpp
@@ -44,6 +28,3 @@ add_executable(cpp_demo
 
 # say that cpp_demo depends on chucknorris
 target_link_libraries(cpp_demo chucknorris)
-
-# say that chucknorris depends on sqlite
-target_link_libraries(chucknorris sqlite3)

@@ -1,1 +1,3 @@
 build/default
+.cache
+compile_commands.json

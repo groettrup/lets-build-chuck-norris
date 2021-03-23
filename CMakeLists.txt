@@ -12,7 +12,9 @@ conan_basic_setup(TARGETS)
 # describe the first build target
 add_library(chucknorris
     include/ChuckNorris.hpp
+    include/chucknorris.h
     src/ChuckNorris.cpp
+    src/c_wrapper.cpp
 )
 
 # there are header files in the include directory
@@ -30,8 +32,16 @@ add_executable(cpp_demo
     src/main.cpp
 )
 
+# describe the build target for testing the c api
+add_executable(c_demo
+    src/main.c
+)
+
 # say that cpp_demo depends on chucknorris
 target_link_libraries(cpp_demo chucknorris)
+
+# say that c_demo depends on chucknorris
+target_link_libraries(c_demo chucknorris)
 
 # say that chucknorris depends on a CONAN PKG
 target_link_libraries(chucknorris CONAN_PKG::sqlite3)

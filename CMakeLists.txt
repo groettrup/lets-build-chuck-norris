@@ -1,9 +1,13 @@
 cmake_minimum_required(VERSION 3.10)
 
+project(ChuckNorris)
+
 # allow modern c++ feature from c++11 or later
 set(CMAKE_CXX_STANDARD 11)
 
-project(ChuckNorris)
+# Use conan to include libraries
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup(TARGETS)
 
 # describe the first build target
 add_library(chucknorris
@@ -28,3 +32,6 @@ add_executable(cpp_demo
 
 # say that cpp_demo depends on chucknorris
 target_link_libraries(cpp_demo chucknorris)
+
+# say that chucknorris depends on a CONAN PKG
+target_link_libraries(chucknorris CONAN_PKG::sqlite3)

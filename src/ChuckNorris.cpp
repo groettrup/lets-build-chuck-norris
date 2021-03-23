@@ -8,9 +8,9 @@ ChuckNorris::ChuckNorris()
     auto const sql = R"(
 CREATE TABLE chucknorris(id PRIMARY_KEY, fact VARCHAR(500));
 INSERT INTO  chucknorris (fact) VALUES
-  ("Chuck Norris can slam a revolving door")
+  ("Chuck Norris can slam a revolving door");
 INSERT INTO  chucknorris (fact) VALUES
-  ("Chuck Norris can kill two stones with one bird")
+  ("Chuck Norris can kill two stones with one bird");
     )";
 
     sqlite3_exec(_db, sql, 0, 0, nullptr);

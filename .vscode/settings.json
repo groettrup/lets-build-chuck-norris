@@ -3,5 +3,10 @@
     "cmake.generator": "Ninja",
     "cmake.configureArgs": [
         "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
-    ]
+    ],
+    "cmake.environment": {
+        "CC": "clang",
+        "CXX": "clang++"
+    },
+    "cmake.configureOnOpen": false
 }

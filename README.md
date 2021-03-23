@@ -29,3 +29,15 @@ sqlite3 with the link https://www.sqlite.org/2021/sqlite-amalgamation-3350200.zi
 
 with llvm-ar the _f_ option is not available anymore
 
+## Using Conan to handle dependencies
+
+The sqlite3 dependency had to be build locally, because the clang package is not
+prebuilt. The default generator for cmake on Windows is "MinGW Makefiles". To use
+Ninja, the environment variable _CONAN_CMAKE_GENERATOR_ can be used. This can be
+enabled for conan with the addition to `%USERPROFILE%\.conan\profiles\default`:
+
+```ini
+...
+[env]
+CONAN_CMAKE_GENERATOR=Ninja
+```

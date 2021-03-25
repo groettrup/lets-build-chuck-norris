@@ -1,7 +1,9 @@
 #include <string>
 #include <sqlite3.h>
 
-class ChuckNorris {
+#include <chucknorris_Export.h>
+
+class CHUCKNORRIS_EXPORT ChuckNorris {
     public:
         ChuckNorris();
         // Make sure you cannot copy Chuck Norris

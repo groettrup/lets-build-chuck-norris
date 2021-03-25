@@ -41,3 +41,22 @@ enabled for conan with the addition to `%USERPROFILE%\.conan\profiles\default`:
 [env]
 CONAN_CMAKE_GENERATOR=Ninja
 ```
+
+## Building the Shared Library
+on windows the build just works, because the _sqlite3_ is already built with all
+Options enabled. The generated DLL is missing all symbols to link. _cmake_ has a
+macro that generates macros in a header file called _chucknorris_Export.h_ in this
+case to mark certain functions as functions that should be exported.
+
+The module that provides this macro can be included using the following lines:
+```cmake
+include(GenerateExportHeader)
+GENERATE_EXPORT_HEADER(chucknorris)
+```
+
+the header file is generated in the _build/default_ folder, which can be included
+using `$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>` in the include directories
+macro for the library.
+
+VS Code also passed the option `-DBUILD_SHARED_LIBS=ON` to cmake to set the library
+as _SHARED_

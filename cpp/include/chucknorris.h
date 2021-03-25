@@ -2,7 +2,7 @@
 extern "C" {
 #endif
 
-#include <chucknorris_Export.h>
+#include <chucknorris_export.h>
 
 /* Preface every function with `chuck_norris` to create a pseude namespace */
 /* Use an opaque pointer to refer to ChuckNorris objects in C. 

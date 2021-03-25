@@ -1,7 +1,7 @@
 #include <string>
 #include <sqlite3.h>
 
-#include <chucknorris_Export.h>
+#include <chucknorris_export.h>
 
 class CHUCKNORRIS_EXPORT ChuckNorris {
     public:

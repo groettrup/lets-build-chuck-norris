@@ -60,3 +60,8 @@ macro for the library.
 
 VS Code also passed the option `-DBUILD_SHARED_LIBS=ON` to cmake to set the library
 as _SHARED_
+
+## Creating a Python Wheel
+The current build environment uses _msvcrtd_ as standard library to use it in python
+as well, we need to add the option `libraries=["msvcrtd"],` to the _set\_source_
+command in _build_chucknorris.py_

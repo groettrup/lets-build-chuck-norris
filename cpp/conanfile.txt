@@ -3,3 +3,4 @@ sqlite3/3.35.2
 
 [generators]
 cmake
+json

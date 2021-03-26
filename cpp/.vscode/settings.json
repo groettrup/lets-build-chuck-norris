@@ -3,7 +3,7 @@
     "cmake.generator": "Ninja",
     "cmake.configureArgs": [
         "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
-        "-DBUILD_SHARED_LIBS=ON"
+        //"-DBUILD_SHARED_LIBS=ON"
     ],
     "cmake.environment": {
         "CC": "clang",

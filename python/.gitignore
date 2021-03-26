@@ -1,0 +1,4 @@
+.eggs
+build
+chucknorris.egg-info
+*.pyd
